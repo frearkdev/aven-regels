@@ -77,9 +77,31 @@ html { scroll-behavior: smooth; }
 .empty { color: var(--aven-muted); text-align: center; padding: 2rem 0; }
 .regel[hidden], .hoofdstuk[hidden], .empty[hidden] { display: none !important; }
 
-@media (max-width: 40rem) {
-  .md-typeset .regel, .md-typeset .regel--begrip, .md-typeset .regel--sanctie { grid-template-columns: 1fr; gap: .15rem; }
+/* Header past altijd in de breedte (lange paginatitel liep buiten beeld op mobiel) */
+.md-header__title { min-width: 0; flex-grow: 1; overflow: hidden; }
+.md-header__topic { max-width: 100%; }
+
+/* Tablet en mobiel */
+@media (max-width: 76.1875em) {
+  .md-header__button.md-logo { display: inline-block; order: 1; margin: .2rem .2rem .2rem 0; }
+  .md-header__button[for="__drawer"] { order: 0; }
+  .md-header__title { order: 2; }
+  .md-header__option, .md-header__source, .md-search, .md-header__button[for="__search"] { order: 3; }
+  .md-header__button.md-logo img { height: 1.6rem; }
 }
+@media (max-width: 40rem) {
+  .md-typeset .regel, .md-typeset .regel--begrip, .md-typeset .regel--sanctie { grid-template-columns: 1fr; gap: .15rem; padding: .7rem .9rem; }
+  .md-typeset .regel h3 { white-space: normal; }
+  .hero { padding: 1.2rem 0 .6rem; }
+  .md-typeset .hero__title { padding-left: .06em; }
+  .hero__sub { font-size: .82rem; margin-bottom: 1rem; }
+  .aven-search { flex-wrap: wrap; gap: 0 .6rem; padding: 0 .8rem; }
+  .aven-search input { font-size: 16px; } /* voorkomt inzoomen op iPhone */
+  .aven-search kbd { display: none; }
+  .aven-search span { flex-basis: 100%; padding: 0 0 .55rem; }
+  .md-typeset h2 { font-size: 1rem; margin-top: 2em; }
+}
+@media (hover: none) { .aven-search kbd { display: none; } .md-typeset .headerlink { opacity: .6; } }
 @media print {
   body, .md-main { background: #fff; color: #000; }
   .md-header, .md-sidebar, .md-footer, .md-top, .aven-search { display: none; }

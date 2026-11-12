@@ -7,7 +7,7 @@ title: Algemene Plaatselijke Verordening
 <h1 class="hero__title">APV</h1>
 <p class="hero__sub">De regels van Aven Roleplay voor iedere speler. Versie 1.0 · Serious Roleplay. Realistische verhalen. Een sterke community.</p>
 <div class="aven-search" role="search">
-<input id="aven-filter" type="search" placeholder="Zoek op regel of trefwoord, bijv. RDM" aria-label="Zoek in de APV" autocomplete="off">
+<input id="aven-filter" type="search" placeholder="Zoek in de APV, bijv. RDM" aria-label="Zoek in de APV" autocomplete="off">
 <kbd>/</kbd>
 <span id="aven-count">122 regels</span>
 </div>

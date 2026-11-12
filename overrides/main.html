@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {#- Link previews (Discord, WhatsApp, X): purple embed bar, title, description and a large image -#}
+  {%- set og_title = "APV · Aven Roleplay" -%}
+  {%- set og_desc = "De regels van Aven Roleplay. Zoek op trefwoord en link direct naar elk artikel." -%}
+  <meta name="theme-color" content="#8b3dff">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aven Roleplay">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:title" content="{{ og_title }}">
+  <meta property="og:description" content="{{ og_desc }}">
+  <meta property="og:url" content="{{ page.canonical_url }}">
+  <meta property="og:image" content="{{ config.site_url }}assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aven Roleplay logo met APV">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ og_title }}">
+  <meta name="twitter:description" content="{{ og_desc }}">
+  <meta name="twitter:image" content="{{ config.site_url }}assets/og-image.jpg">
+{% endblock %}
