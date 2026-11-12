@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,800;1,900&display=swap");
+
+:root, [data-md-color-scheme="slate"] {
+  --aven-bg: #07030c; --aven-surface: #140822; --aven-line: #2a1747; --aven-text: #f4efff;
+  --aven-muted: #9b8bb8; --aven-violet: #8b3dff; --aven-lav: #c9a0ff;
+  --md-default-bg-color: var(--aven-bg);
+  --md-default-bg-color--light: var(--aven-surface);
+  --md-default-fg-color: var(--aven-text);
+  --md-default-fg-color--light: #d9ccf2;
+  --md-default-fg-color--lighter: var(--aven-muted);
+  --md-default-fg-color--lightest: var(--aven-line);
+  --md-primary-fg-color: var(--aven-surface);
+  --md-primary-fg-color--dark: var(--aven-bg);
+  --md-primary-bg-color: var(--aven-text);
+  --md-accent-fg-color: var(--aven-violet);
+  --md-typeset-color: var(--aven-text);
+  --md-typeset-a-color: var(--aven-lav);
+  --md-footer-bg-color: var(--aven-bg);
+  --md-footer-bg-color--dark: var(--aven-bg);
+}
+body, .md-main { background: var(--aven-bg); }
+html { scroll-behavior: smooth; }
+
+/* Header */
+.md-header { background: #140822; border-bottom: 1px solid var(--aven-line); box-shadow: none; }
+.md-header__button.md-logo img { height: 2rem; width: auto; }
+.md-header__title { font-family: "Montserrat", sans-serif; font-weight: 800; }
+.md-top { background: var(--aven-violet); color: var(--aven-text); border: 0; }
+.md-footer, .md-footer-meta { background: var(--aven-bg); border-top: 1px solid var(--aven-line); }
+
+/* Zijbalk: alleen hoofdstukken */
+.md-sidebar { background: transparent; }
+.md-nav--secondary .md-nav__link { font-size: .72rem; padding: .15rem 0; }
+.md-nav__item .md-nav__link--active { color: var(--aven-lav); font-weight: 700; }
+
+/* Pagina */
+.md-grid { max-width: 64rem; }
+.md-content__inner { margin-top: 0; }
+.md-typeset { font-size: .82rem; line-height: 1.65; }
+.md-typeset a { color: var(--aven-lav); }
+.md-typeset h1, .md-typeset h2, .md-typeset h3 { font-family: "Montserrat", "Inter", sans-serif; color: var(--aven-text); }
+
+/* Hero */
+.hero { padding: 2.2rem 0 1.2rem; }
+.hero__eyebrow { margin: 0; color: var(--aven-violet); font-family: "Montserrat", sans-serif; font-weight: 800; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; }
+.md-typeset .hero__title { margin: .1em 0 .2em; font-size: clamp(3rem, 9vw, 4.6rem); font-weight: 900; font-style: italic; line-height: 1; letter-spacing: -.02em; }
+.hero__sub { margin: 0 0 1.4rem; max-width: 34rem; color: var(--aven-muted); font-size: .9rem; }
+.aven-search { display: flex; align-items: center; gap: .7rem; max-width: 34rem; padding: 0 .9rem; background: var(--aven-surface); border: 1px solid var(--aven-line); border-radius: .5rem; }
+.aven-search:focus-within { border-color: var(--aven-violet); box-shadow: 0 0 0 3px rgba(139,61,255,.25); }
+.aven-search input { flex: 1; min-width: 0; padding: .8rem 0; background: transparent; border: 0; outline: 0; color: var(--aven-text); font: inherit; font-size: .85rem; }
+.aven-search kbd { padding: 0 .4rem; border: 1px solid var(--aven-line); border-radius: .25rem; color: var(--aven-muted); font-size: .65rem; box-shadow: none; background: transparent; }
+.aven-search span { color: var(--aven-muted); font-size: .65rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+
+/* Hoofdstuk */
+.md-typeset h2 { margin: 2.6em 0 .7em; font-size: 1.15rem; font-weight: 800; text-transform: uppercase; scroll-margin-top: 4rem; }
+.hoofdstuk__intro { color: var(--aven-muted); margin: -.3em 0 .8em; }
+
+/* Regels */
+.regels { border: 1px solid var(--aven-line); border-radius: .6rem; overflow: hidden; background: var(--aven-surface); }
+.md-typeset .regel { display: grid; grid-template-columns: 5.2rem 1fr; gap: 0 1rem; align-items: baseline; padding: .75rem 1.1rem; border-bottom: 1px solid var(--aven-line); transition: background .12s; }
+.md-typeset .regel:last-child { border-bottom: 0; }
+.md-typeset .regel:hover { background: rgba(139,61,255,.07); }
+.md-typeset .regel h3 { margin: 0; font-size: .85rem; font-weight: 900; font-style: italic; color: var(--aven-violet); scroll-margin-top: 4.5rem; white-space: nowrap; }
+.md-typeset .regel p, .md-typeset .regel ul { margin: 0; }
+.md-typeset .regel ul { padding-left: 1.1rem; }
+.md-typeset .regel li { margin: .15rem 0; }
+.md-typeset .regel:has(:target) { background: rgba(139,61,255,.16); box-shadow: inset 4px 0 0 var(--aven-violet); }
+.md-typeset .regel--begrip { grid-template-columns: 10rem 1fr; }
+.md-typeset .regel--begrip h3 { font-style: normal; font-size: .8rem; color: var(--aven-lav); white-space: normal; }
+.md-typeset .regel--sanctie { grid-template-columns: 12rem 1fr; }
+.md-typeset .regel--sanctie h3 { font-style: normal; font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; white-space: normal; color: var(--c, var(--aven-lav)); }
+.sanctie--waarschuwing { --c: #c9a0ff; } .sanctie--taakstraf { --c: #a67cff; } .sanctie--kick { --c: #e0a63c; }
+.sanctie--tijdelijke-ban { --c: #e0683c; } .sanctie--lange-tijdelijke-ban { --c: #d6453d; }
+.sanctie--permanente-ban { --c: #ff4f6a; } .sanctie--aanvullende-sancties { --c: #6f9ee0; }
+.md-typeset .headerlink { opacity: 0; margin-left: .3em; color: var(--aven-lav); transition: opacity .15s; }
+.md-typeset .regel:hover .headerlink, .md-typeset .headerlink.copied, .md-typeset .headerlink:focus { opacity: 1; }
+.empty { color: var(--aven-muted); text-align: center; padding: 2rem 0; }
+.regel[hidden], .hoofdstuk[hidden], .empty[hidden] { display: none !important; }
+
+@media (max-width: 40rem) {
+  .md-typeset .regel, .md-typeset .regel--begrip, .md-typeset .regel--sanctie { grid-template-columns: 1fr; gap: .15rem; }
+}
+@media print {
+  body, .md-main { background: #fff; color: #000; }
+  .md-header, .md-sidebar, .md-footer, .md-top, .aven-search { display: none; }
+  .regels, .md-typeset .regel { background: #fff; border-color: #ccc; }
+  .md-typeset, .md-typeset h1, .md-typeset h2, .md-typeset h3 { color: #000; }
+}
