@@ -45,3 +45,59 @@ document.addEventListener("click", function (event) {
   }
   if (window.document$) { window.document$.subscribe(init); } else { document.addEventListener("DOMContentLoaded", init); }
 })();
+
+// Zijbalk: markeert het hoofdstuk dat nu in beeld is. Een klik op een hoofdstuk markeert dat hoofdstuk meteen,
+// ook als het onderaan de pagina staat en niet helemaal bovenaan past.
+(function () {
+  var links = [];
+  var heads = [];
+  var forced = null;
+  var THRESHOLD = 140;
+
+  function current() {
+    var index = 0;
+    heads.forEach(function (head, i) {
+      if (head && head.offsetParent !== null && head.getBoundingClientRect().top <= THRESHOLD) index = i;
+    });
+    return index;
+  }
+
+  function paint(index) {
+    links.forEach(function (link, i) {
+      var on = i === index;
+      link.classList.toggle("is-current", on);
+      if (on) link.setAttribute("aria-current", "true"); else link.removeAttribute("aria-current");
+    });
+    var active = links[index];
+    var wrap = document.querySelector(".md-sidebar--primary .md-sidebar__scrollwrap");
+    if (active && wrap) {
+      var box = active.getBoundingClientRect();
+      var area = wrap.getBoundingClientRect();
+      if (box.top < area.top + 80 || box.bottom > area.bottom - 20) wrap.scrollTop += box.top - area.top - area.height / 3;
+    }
+  }
+
+  function update() { paint(forced !== null ? forced : current()); }
+
+  function init() {
+    links = Array.prototype.slice.call(document.querySelectorAll('.md-nav--secondary a.md-nav__link[href^="#hoofdstuk-"]'));
+    heads = links.map(function (link) { return document.getElementById(link.getAttribute("href").slice(1)); });
+    if (!links.length || document.body.dataset.spy) return;
+    document.body.dataset.spy = "1";
+    links.forEach(function (link, i) {
+      link.addEventListener("click", function () { forced = i; paint(i); });
+    });
+    ["wheel", "touchmove", "keydown"].forEach(function (name) {
+      window.addEventListener(name, function () { forced = null; }, { passive: true });
+    });
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("hashchange", function () {
+      var i = heads.findIndex(function (head) { return head && "#" + head.id === location.hash; });
+      if (i >= 0) forced = i;
+      update();
+    });
+    update();
+  }
+
+  if (window.document$) { window.document$.subscribe(init); } else { document.addEventListener("DOMContentLoaded", init); }
+})();
