@@ -50,13 +50,23 @@ body { overflow-x: clip; }
 .md-nav--secondary .md-nav__link:hover { background: var(--aven-surface); color: var(--aven-text); }
 .md-nav__item .md-nav__link--active { background: var(--aven-surface-2); color: var(--aven-text); font-weight: 500; }
 @media (min-width: 76.25em) {
-  /* De site-titel en de pagina-"APV" staan al in de header en de paginakop */
-  .md-nav--primary > .md-nav__title,
+  /* Zijbalk als vaste, volle-hoogte kolom zoals in het portaal; de header zit erin (merkblok) */
+  .md-sidebar--primary { position: fixed !important; top: 0; left: 0; bottom: 0; width: 16rem !important; height: 100vh !important; padding: 0 !important; background: var(--aven-void); border-right: 1px solid var(--aven-line); z-index: 5; }
+  .md-sidebar--primary .md-sidebar__scrollwrap { height: 100%; margin: 0; padding: 0 .75rem 1rem; }
+  .md-sidebar--primary .md-sidebar__inner { padding: 0; }
+  .md-header { display: none; }
+  .md-main, .md-footer { margin-left: 16rem; }
+
+  .md-nav--primary > .md-nav__title { display: flex !important; align-items: center; gap: .75rem; margin: 0 -.75rem .5rem; padding: 1.1rem 1.25rem; height: auto; background: none; box-shadow: none; color: var(--aven-text); font-size: 1rem; font-weight: 700; cursor: default; }
+  .md-nav--primary > .md-nav__title .md-logo { display: inline-block !important; padding: 0; margin: 0; }
+  .md-nav--primary > .md-nav__title .md-logo img { height: 2.25rem; width: auto; }
   .md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link,
   .md-nav--secondary > .md-nav__title { display: none; }
   .md-nav--primary .md-nav--secondary { margin: 0; }
   .md-nav--secondary .md-nav__list { padding: 0; }
-  .md-sidebar--primary { padding-top: 1.2rem; }
+  .md-nav--secondary .md-nav__list::before { content: "Hoofdstukken"; display: block; padding: .5rem .7rem; font-size: .75rem; font-weight: 500; color: var(--aven-muted); }
+  .md-nav--secondary .md-nav__link { display: block; }
+  .md-top { left: auto; }
 }
 
 /* Pagina */
