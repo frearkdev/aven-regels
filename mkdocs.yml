@@ -1,7 +1,7 @@
 site_name: Aven Roleplay
 site_url: https://regels.avenrp.nl/
 site_description: Algemene Plaatselijke Verordening van Aven Roleplay
-copyright: Aven Roleplay • APV • Versie 1.0
+copyright: Aven Roleplay. APV, versie 1.0
 docs_dir: docs
 theme:
   name: material
@@ -9,9 +9,7 @@ theme:
   language: nl
   logo: assets/arp-transparant.png
   favicon: assets/favicon-64.png
-  font:
-    text: Inter
-    code: Roboto Mono
+  font: false
   palette:
     scheme: slate
   features:

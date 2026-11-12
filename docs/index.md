@@ -3,9 +3,8 @@ title: Algemene Plaatselijke Verordening
 ---
 
 <div class="hero">
-<p class="hero__eyebrow">Algemene Plaatselijke Verordening</p>
-<h1 class="hero__title">APV</h1>
-<p class="hero__sub">De regels van Aven Roleplay voor iedere speler. Versie 1.0 · Serious Roleplay. Realistische verhalen. Een sterke community.</p>
+<h1 class="hero__title">Algemene Plaatselijke Verordening</h1>
+<p class="hero__sub">De regels van Aven Roleplay voor iedere speler. Versie 1.0. Serious Roleplay, realistische verhalen en een sterke community.</p>
 <div class="aven-search" role="search">
 <input id="aven-filter" type="search" placeholder="Zoek in de APV, bijv. RDM" aria-label="Zoek in de APV" autocomplete="off">
 <kbd>/</kbd>

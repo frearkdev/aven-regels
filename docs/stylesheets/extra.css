@@ -1,74 +1,90 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,800;1,900&display=swap");
+/* Aven APV: zelfde stijl als het Aven Portaal (neutraal donker, Inter, paars alleen als accent). */
+
+/* Zelf gehost, geen Google Fonts */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter-latin-400-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter-latin-ext-400-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/inter-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/inter-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/inter-latin-ext-700-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 
 :root, [data-md-color-scheme="slate"] {
-  --aven-bg: #07030c; --aven-surface: #140822; --aven-line: #2a1747; --aven-text: #f4efff;
-  --aven-muted: #9b8bb8; --aven-violet: #8b3dff; --aven-lav: #c9a0ff;
-  --md-default-bg-color: var(--aven-bg);
+  --aven-base: #0b0a0e; --aven-void: #08070b; --aven-surface: #131218; --aven-surface-2: #1c1b23; --aven-line: #27252f;
+  --aven-text: #f3f1f7; --aven-muted: #9d99ab; --aven-violet: #8b3dff; --aven-violet-dark: #6e27d9; --aven-lav: #c9a0ff;
+  --aven-font: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --md-text-font: "Inter";
+  --md-default-bg-color: var(--aven-base);
   --md-default-bg-color--light: var(--aven-surface);
   --md-default-fg-color: var(--aven-text);
-  --md-default-fg-color--light: #d9ccf2;
+  --md-default-fg-color--light: var(--aven-text);
   --md-default-fg-color--lighter: var(--aven-muted);
   --md-default-fg-color--lightest: var(--aven-line);
-  --md-primary-fg-color: var(--aven-surface);
-  --md-primary-fg-color--dark: var(--aven-bg);
+  --md-primary-fg-color: var(--aven-void);
+  --md-primary-fg-color--dark: var(--aven-void);
   --md-primary-bg-color: var(--aven-text);
   --md-accent-fg-color: var(--aven-violet);
   --md-typeset-color: var(--aven-text);
   --md-typeset-a-color: var(--aven-lav);
-  --md-footer-bg-color: var(--aven-bg);
-  --md-footer-bg-color--dark: var(--aven-bg);
+  --md-footer-bg-color: var(--aven-void);
+  --md-footer-bg-color--dark: var(--aven-void);
 }
-body, .md-main { background: var(--aven-bg); }
-html { scroll-behavior: smooth; }
+body, .md-main { background: var(--aven-base); font-family: var(--aven-font); }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { overflow-x: clip; }
+:focus-visible { outline: 2px solid var(--aven-violet); outline-offset: 2px; transition: none; }
 
-/* Header */
-.md-header { background: #140822; border-bottom: 1px solid var(--aven-line); box-shadow: none; }
+/* Header: zoals de zijbalk van het portaal, rustig en donker */
+.md-header { background: var(--aven-void); border-bottom: 1px solid var(--aven-line); box-shadow: none; }
 .md-header__button.md-logo img { height: 2rem; width: auto; }
-.md-header__title { font-family: "Montserrat", sans-serif; font-weight: 800; }
-.md-top { background: var(--aven-violet); color: var(--aven-text); border: 0; }
-.md-footer, .md-footer-meta { background: var(--aven-bg); border-top: 1px solid var(--aven-line); }
+.md-header__title { font-weight: 700; min-width: 0; flex-grow: 1; overflow: hidden; }
+.md-header__topic { max-width: 100%; }
+.md-top { background: var(--aven-surface-2); color: var(--aven-text); border: 1px solid var(--aven-line); box-shadow: none; }
+.md-top:hover { background: var(--aven-violet); color: #fff; }
+.md-footer, .md-footer-meta { background: var(--aven-void); border-top: 1px solid var(--aven-line); }
 
-/* Zijbalk: alleen hoofdstukken */
+/* Zijbalk met hoofdstukken */
 .md-sidebar { background: transparent; }
-.md-nav--secondary .md-nav__link { font-size: .72rem; padding: .15rem 0; }
-.md-nav__item .md-nav__link--active { color: var(--aven-lav); font-weight: 700; }
+.md-nav--secondary .md-nav__title { color: var(--aven-text); font-weight: 700; }
+.md-nav--secondary .md-nav__link { font-size: .78rem; padding: .35rem .6rem; margin: 0; border-radius: .25rem; color: var(--aven-muted); }
+.md-nav--secondary .md-nav__link:hover { background: var(--aven-surface); color: var(--aven-text); }
+.md-nav__item .md-nav__link--active { background: var(--aven-surface-2); color: var(--aven-text); font-weight: 500; }
 
 /* Pagina */
 .md-grid { max-width: 64rem; }
 .md-content__inner { margin-top: 0; }
 .md-typeset { font-size: .82rem; line-height: 1.65; }
 .md-typeset a { color: var(--aven-lav); }
-.md-typeset h1, .md-typeset h2, .md-typeset h3 { font-family: "Montserrat", "Inter", sans-serif; color: var(--aven-text); }
+.md-typeset h1, .md-typeset h2, .md-typeset h3 { font-family: var(--aven-font); color: var(--aven-text); font-weight: 700; letter-spacing: 0; text-transform: none; }
 
-/* Hero */
-.hero { padding: 2.2rem 0 1.2rem; }
-.hero__eyebrow { margin: 0; color: var(--aven-violet); font-family: "Montserrat", sans-serif; font-weight: 800; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; }
-.md-typeset .hero__title { margin: .1em 0 .2em; font-size: clamp(3rem, 9vw, 4.6rem); font-weight: 900; font-style: italic; line-height: 1; letter-spacing: -.02em; }
-.hero__sub { margin: 0 0 1.4rem; max-width: 34rem; color: var(--aven-muted); font-size: .9rem; }
-.aven-search { display: flex; align-items: center; gap: .7rem; max-width: 34rem; padding: 0 .9rem; background: var(--aven-surface); border: 1px solid var(--aven-line); border-radius: .5rem; }
-.aven-search:focus-within { border-color: var(--aven-violet); box-shadow: 0 0 0 3px rgba(139,61,255,.25); }
-.aven-search input { flex: 1; min-width: 0; padding: .8rem 0; background: transparent; border: 0; outline: 0; color: var(--aven-text); font: inherit; font-size: .85rem; }
+/* Titelblok */
+.hero { padding: 2rem 0 1rem; border-bottom: 1px solid var(--aven-line); margin-bottom: 1.2rem; }
+.md-typeset .hero__title { margin: 0 0 .3em; font-size: clamp(1.7rem, 5vw, 2.2rem); font-weight: 700; line-height: 1.15; }
+.hero__sub { margin: 0 0 1.2rem; max-width: 36rem; color: var(--aven-muted); font-size: .9rem; }
+.aven-search { display: flex; align-items: center; gap: .7rem; max-width: 36rem; padding: 0 .9rem; background: var(--aven-base); border: 1px solid var(--aven-line); border-radius: .25rem; }
+.aven-search:focus-within { border-color: var(--aven-violet); }
+.aven-search input { flex: 1; min-width: 0; padding: .7rem 0; background: transparent; border: 0; outline: 0; color: var(--aven-text); font: inherit; font-size: .85rem; }
+.aven-search input::placeholder { color: var(--aven-muted); opacity: .8; }
 .aven-search kbd { padding: 0 .4rem; border: 1px solid var(--aven-line); border-radius: .25rem; color: var(--aven-muted); font-size: .65rem; box-shadow: none; background: transparent; }
-.aven-search span { color: var(--aven-muted); font-size: .65rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+.aven-search span { color: var(--aven-muted); font-size: .72rem; font-weight: 500; white-space: nowrap; }
 
 /* Hoofdstuk */
-.md-typeset h2 { margin: 2.6em 0 .7em; font-size: 1.15rem; font-weight: 800; text-transform: uppercase; scroll-margin-top: 4rem; }
+.md-typeset h2 { margin: 2.2em 0 .7em; font-size: 1.15rem; scroll-margin-top: 4rem; }
 .hoofdstuk__intro { color: var(--aven-muted); margin: -.3em 0 .8em; }
 
-/* Regels */
-.regels { border: 1px solid var(--aven-line); border-radius: .6rem; overflow: hidden; background: var(--aven-surface); }
-.md-typeset .regel { display: grid; grid-template-columns: 5.2rem 1fr; gap: 0 1rem; align-items: baseline; padding: .75rem 1.1rem; border-bottom: 1px solid var(--aven-line); transition: background .12s; }
+/* Regels: kaart zoals in het portaal */
+.regels { border: 1px solid var(--aven-line); border-radius: .4rem; overflow: hidden; background: var(--aven-surface); }
+.md-typeset .regel { display: grid; grid-template-columns: 5.2rem 1fr; gap: 0 1rem; align-items: baseline; padding: .75rem 1.1rem; border-bottom: 1px solid var(--aven-line); transition: background-color .12s; }
 .md-typeset .regel:last-child { border-bottom: 0; }
-.md-typeset .regel:hover { background: rgba(139,61,255,.07); }
-.md-typeset .regel h3 { margin: 0; font-size: .85rem; font-weight: 900; font-style: italic; color: var(--aven-violet); scroll-margin-top: 4.5rem; white-space: nowrap; }
+.md-typeset .regel:hover { background: var(--aven-surface-2); }
+.md-typeset .regel h3 { margin: 0; font-size: .82rem; font-weight: 700; color: var(--aven-lav); scroll-margin-top: 4.5rem; white-space: nowrap; }
 .md-typeset .regel p, .md-typeset .regel ul { margin: 0; }
 .md-typeset .regel ul { padding-left: 1.1rem; }
 .md-typeset .regel li { margin: .15rem 0; }
-.md-typeset .regel:has(:target) { background: rgba(139,61,255,.16); box-shadow: inset 4px 0 0 var(--aven-violet); }
+.md-typeset .regel:has(:target) { background: var(--aven-surface-2); box-shadow: inset 3px 0 0 var(--aven-violet); }
 .md-typeset .regel--begrip { grid-template-columns: 10rem 1fr; }
-.md-typeset .regel--begrip h3 { font-style: normal; font-size: .8rem; color: var(--aven-lav); white-space: normal; }
+.md-typeset .regel--begrip h3 { font-size: .8rem; color: var(--aven-text); white-space: normal; }
 .md-typeset .regel--sanctie { grid-template-columns: 12rem 1fr; }
-.md-typeset .regel--sanctie h3 { font-style: normal; font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; white-space: normal; color: var(--c, var(--aven-lav)); }
+.md-typeset .regel--sanctie h3 { font-size: .8rem; white-space: normal; color: var(--c, var(--aven-lav)); }
 .sanctie--waarschuwing { --c: #c9a0ff; } .sanctie--taakstraf { --c: #a67cff; } .sanctie--kick { --c: #e0a63c; }
 .sanctie--tijdelijke-ban { --c: #e0683c; } .sanctie--lange-tijdelijke-ban { --c: #d6453d; }
 .sanctie--permanente-ban { --c: #ff4f6a; } .sanctie--aanvullende-sancties { --c: #6f9ee0; }
@@ -76,10 +92,6 @@ html { scroll-behavior: smooth; }
 .md-typeset .regel:hover .headerlink, .md-typeset .headerlink.copied, .md-typeset .headerlink:focus { opacity: 1; }
 .empty { color: var(--aven-muted); text-align: center; padding: 2rem 0; }
 .regel[hidden], .hoofdstuk[hidden], .empty[hidden] { display: none !important; }
-
-/* Header past altijd in de breedte (lange paginatitel liep buiten beeld op mobiel) */
-.md-header__title { min-width: 0; flex-grow: 1; overflow: hidden; }
-.md-header__topic { max-width: 100%; }
 
 /* Tablet en mobiel */
 @media (max-width: 76.1875em) {
@@ -92,16 +104,16 @@ html { scroll-behavior: smooth; }
 @media (max-width: 40rem) {
   .md-typeset .regel, .md-typeset .regel--begrip, .md-typeset .regel--sanctie { grid-template-columns: 1fr; gap: .15rem; padding: .7rem .9rem; }
   .md-typeset .regel h3 { white-space: normal; }
-  .hero { padding: 1.2rem 0 .6rem; }
-  .md-typeset .hero__title { padding-left: .06em; }
+  .hero { padding: 1.2rem 0 .8rem; }
   .hero__sub { font-size: .82rem; margin-bottom: 1rem; }
   .aven-search { flex-wrap: wrap; gap: 0 .6rem; padding: 0 .8rem; }
   .aven-search input { font-size: 16px; } /* voorkomt inzoomen op iPhone */
   .aven-search kbd { display: none; }
   .aven-search span { flex-basis: 100%; padding: 0 0 .55rem; }
-  .md-typeset h2 { font-size: 1rem; margin-top: 2em; }
+  .md-typeset h2 { font-size: 1rem; margin-top: 1.8em; }
 }
 @media (hover: none) { .aven-search kbd { display: none; } .md-typeset .headerlink { opacity: .6; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; } }
 @media print {
   body, .md-main { background: #fff; color: #000; }
   .md-header, .md-sidebar, .md-footer, .md-top, .aven-search { display: none; }
