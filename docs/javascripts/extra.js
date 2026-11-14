@@ -46,12 +46,16 @@ document.addEventListener("click", function (event) {
   if (window.document$) { window.document$.subscribe(init); } else { document.addEventListener("DOMContentLoaded", init); }
 })();
 
-// Zijbalk: markeert het hoofdstuk dat nu in beeld is. Een klik op een hoofdstuk markeert dat hoofdstuk meteen,
-// ook als het onderaan de pagina staat en niet helemaal bovenaan past.
+// Zijbalk: markeert het hoofdstuk dat nu in beeld is. Een klik op een hoofdstuk markeert dat hoofdstuk meteen en houdt
+// het gemarkeerd, ook als het onderaan de pagina staat en niet tot bovenaan kan scrollen. De markering volgt pas weer
+// de scrollpositie als de gebruiker daadwerkelijk wegscrolt van de plek waar de klik uitkwam (slingerbewegingen van
+// een trackpad onderaan de pagina veranderen niets en telden eerder onterecht als "wegscrollen").
 (function () {
   var links = [];
   var heads = [];
   var forced = null;
+  var forcedY = null;
+  var settleTimer = null;
   var THRESHOLD = 140;
 
   function current() {
@@ -77,7 +81,27 @@ document.addEventListener("click", function (event) {
     }
   }
 
-  function update() { paint(forced !== null ? forced : current()); }
+  function update() {
+    if (forced !== null && forcedY !== null && Math.abs(window.scrollY - forcedY) > 60) forced = null;
+    paint(forced !== null ? forced : current());
+  }
+
+  function force(index) {
+    forced = index;
+    forcedY = null;
+    paint(index);
+    // Zodra het (soepele) scrollen na de klik tot stilstand is gekomen, onthouden we waar de pagina uitkwam.
+    window.clearTimeout(settleTimer);
+    settleTimer = window.setTimeout(function () { forcedY = window.scrollY; }, 700);
+  }
+
+  function onScroll() {
+    if (forced !== null && forcedY === null) {
+      window.clearTimeout(settleTimer);
+      settleTimer = window.setTimeout(function () { forcedY = window.scrollY; update(); }, 200);
+    }
+    update();
+  }
 
   function init() {
     links = Array.prototype.slice.call(document.querySelectorAll('.md-nav--secondary a.md-nav__link[href^="#hoofdstuk-"]'));
@@ -85,16 +109,12 @@ document.addEventListener("click", function (event) {
     if (!links.length || document.body.dataset.spy) return;
     document.body.dataset.spy = "1";
     links.forEach(function (link, i) {
-      link.addEventListener("click", function () { forced = i; paint(i); });
+      link.addEventListener("click", function () { force(i); });
     });
-    ["wheel", "touchmove", "keydown"].forEach(function (name) {
-      window.addEventListener(name, function () { forced = null; }, { passive: true });
-    });
-    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("hashchange", function () {
       var i = heads.findIndex(function (head) { return head && "#" + head.id === location.hash; });
-      if (i >= 0) forced = i;
-      update();
+      if (i >= 0) force(i);
     });
     update();
   }
