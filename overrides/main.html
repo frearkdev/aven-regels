@@ -15,3 +15,83 @@
   <meta name="twitter:title" content="{{ og_title }}">
   <meta name="twitter:description" content="{{ og_desc }}">
 {% endblock %}
+
+{% block header %}
+  <header class="av-nav-wrap" data-md-component="header">
+    <div class="av-nav">
+      <label class="av-burger" for="__drawer" aria-label="Hoofdstukken">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      </label>
+      <a class="av-brand" href="https://avenrp.nl" aria-label="Aven Roleplay, naar de website">
+        <img src="{{ 'assets/arp-transparant.png' | url }}" alt="" width="32" height="32">
+        <span>Aven Roleplay</span>
+      </a>
+      <nav class="av-links" aria-label="Website">
+        <a href="https://avenrp.nl/starten">Starten</a>
+        <a href="{{ config.site_url }}" aria-current="page">Regels</a>
+        <a href="https://avenrp.nl/faq">FAQ</a>
+        <a href="https://avenrp.nl/vacatures">Vacatures</a>
+        <a href="https://avenrp.nl/team">Team</a>
+        <a href="https://avenrp.nl/store">Store</a>
+        <a href="https://avenrp.nl/changelog">Nieuws</a>
+      </nav>
+      <a class="av-login" href="https://portaal.avenrp.nl/login">Inloggen</a>
+      <a class="av-cta" href="https://avenrp.nl/starten">Aanmelden</a>
+    </div>
+  </header>
+{% endblock %}
+
+{% block hero %}
+  <section class="av-hero">
+    <div class="av-hero__inner">
+      <h1 class="hero__title">Algemene Plaatselijke Verordening</h1>
+      <p class="hero__sub">De regels van Aven Roleplay voor iedere speler. Versie 1.0. Serious Roleplay, realistische verhalen en een sterke community.</p>
+      <div class="aven-search" role="search">
+        <input id="aven-filter" type="search" placeholder="Zoek in de APV, bijv. RDM" aria-label="Zoek in de APV" autocomplete="off">
+        <kbd>/</kbd>
+        <span id="aven-count">122 regels</span>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block footer %}
+  <footer class="av-footer">
+    <div class="av-footer__inner">
+      <div class="av-footer__brand">
+        <a href="https://avenrp.nl"><img src="{{ 'assets/arp-transparant.png' | url }}" alt="" width="40" height="40"><span>Aven Roleplay</span></a>
+        <p>Als de avond valt, begint je verhaal. Een Nederlandse FiveM-roleplaystad.</p>
+      </div>
+      <nav aria-label="Speel mee">
+        <h2>Speel mee</h2>
+        <ul>
+          <li><a href="https://avenrp.nl/starten">Starten</a></li>
+          <li><a href="https://avenrp.nl/regels">Regels</a></li>
+          <li><a href="https://avenrp.nl/faq">FAQ</a></li>
+          <li><a href="https://avenrp.nl/vacatures">Vacatures</a></li>
+          <li><a href="https://avenrp.nl/team">Team</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Meer">
+        <h2>Meer</h2>
+        <ul>
+          <li><a href="https://avenrp.nl/store">Store</a></li>
+          <li><a href="https://avenrp.nl/changelog">Nieuws</a></li>
+          <li><a href="{{ config.site_url }}">Regels (APV)</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Juridisch">
+        <h2>Juridisch</h2>
+        <ul>
+          <li><a href="https://avenrp.nl/voorwaarden">Voorwaarden</a></li>
+          <li><a href="https://avenrp.nl/privacy">Privacy</a></li>
+          <li><a href="https://avenrp.nl/refund">Refund</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="av-footer__legal">
+      <span>© {{ config.copyright }}</span>
+      <span>Niet gelieerd aan Rockstar Games of Take-Two Interactive.</span>
+    </div>
+  </footer>
+{% endblock %}

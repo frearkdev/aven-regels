@@ -2,20 +2,6 @@
 title: Algemene Plaatselijke Verordening
 ---
 
-<div class="hero">
-<h1 class="hero__title">Algemene Plaatselijke Verordening</h1>
-<p class="hero__sub">De regels van Aven Roleplay voor iedere speler. Versie 1.0. Serious Roleplay, realistische verhalen en een sterke community.</p>
-<nav class="hero__links" aria-label="Aven Roleplay">
-<a class="is-primary" href="https://avenrp.nl/starten">Aanmelden voor de test</a>
-<a href="https://avenrp.nl">Naar avenrp.nl</a>
-<a href="https://avenrp.nl/faq">Veelgestelde vragen</a>
-</nav>
-<div class="aven-search" role="search">
-<input id="aven-filter" type="search" placeholder="Zoek in de APV, bijv. RDM" aria-label="Zoek in de APV" autocomplete="off">
-<kbd>/</kbd>
-<span id="aven-count">122 regels</span>
-</div>
-</div>
 
 Onwetendheid van de APV is geen geldige reden ([Art. 1.9](#artikel-1-9)). Klik op een artikelnummer om de directe link naar dat artikel te kopiëren.
 
