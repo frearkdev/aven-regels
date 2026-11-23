@@ -7,6 +7,8 @@
 :root, [data-md-color-scheme="slate"] {
   --aven-base: #0b0a0e; --aven-void: #08070b; --aven-surface: #131218; --aven-surface-2: #1c1b23; --aven-line: #27252f;
   --aven-text: #f3f1f7; --aven-muted: #9d99ab; --aven-violet: #8b3dff; --aven-violet-dark: #6e27d9; --aven-lav: #c9a0ff;
+  /* Zelfde waarden als .theme-night op avenrp.nl (menubalk, kop en voet) */
+  --av-ink: #f4f2f8; --av-muted: #aaa6ba; --av-void: #07060b; --av-base: #0b0a0e; --av-surface: #15131c; --av-surface-2: #1d1b26; --av-line: #2a2735;
   --aven-font: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
   --md-text-font: "Schibsted Grotesk";
   --md-default-bg-color: var(--aven-base);
@@ -31,35 +33,63 @@ body { overflow-x: clip; }
 .md-top { background: var(--aven-surface-2); color: var(--aven-text); border: 1px solid var(--aven-line); box-shadow: none; }
 .md-top:hover { background: var(--aven-violet); color: #fff; }
 
-/* Zwevende menubalk, gelijk aan avenrp.nl */
-.av-nav-wrap { position: fixed; inset: .75rem 0 auto; z-index: 6; display: flex; justify-content: center; padding: 0 .75rem; pointer-events: none; }
-.av-nav { pointer-events: auto; display: flex; align-items: center; gap: .5rem; width: 100%; max-width: 64rem; padding: .5rem .5rem .5rem 1rem; border: 1px solid rgb(39 37 47 / .8); border-radius: 999px; background: rgb(11 10 14 / .8); box-shadow: 0 10px 30px rgb(8 7 11 / .4); backdrop-filter: blur(20px); }
-.av-nav a { text-decoration: none; }
-.av-burger { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 999px; color: var(--aven-text); cursor: pointer; }
-.av-brand { display: flex; align-items: center; gap: .6rem; margin-right: auto; color: var(--aven-text); font-weight: 700; font-size: .85rem; white-space: nowrap; }
-.av-brand img { height: 2rem; width: auto; }
-.av-links { display: none; align-items: center; gap: .25rem; font-size: .72rem; }
-.av-links a { padding: .4rem .85rem; border-radius: 999px; color: var(--aven-muted); transition: color .12s; }
-.av-links a:hover { color: var(--aven-text); }
-.av-links a[aria-current="page"] { background: var(--aven-surface-2); color: var(--aven-text); font-weight: 700; }
-.av-login { display: none; padding: .45rem 1rem; border: 1px solid var(--aven-line); border-radius: 999px; color: var(--aven-text); font-size: .74rem; font-weight: 700; }
-.av-login:hover { background: var(--aven-surface-2); }
-.av-cta { padding: .5rem 1.1rem; border-radius: 999px; background: var(--aven-violet); color: #fff; font-size: .74rem; font-weight: 700; }
-.av-cta:hover { background: var(--aven-violet-dark); }
+/* Menubalk, kop en voet: afmetingen in px, gelijk aan avenrp.nl (daar is 1rem 16px, hier 20px) */
+.av-nav-wrap, .av-hero, .av-footer { font-family: var(--aven-font); font-size: 17px; line-height: 1.55; color: var(--av-ink); }
+.av-nav-wrap a, .av-hero a, .av-footer a { text-decoration: none; }
 
-/* Kop zoals op avenrp.nl: avondbeeld over de volle breedte, titel linksonder */
-.av-hero { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: 46svh; overflow: hidden; background: var(--aven-void) url("../assets/scene-polder.webp") 40% center / cover; }
-.av-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgb(8 7 11 / .9) 0%, rgb(8 7 11 / .55) 55%, rgb(8 7 11 / .1) 100%); }
-.av-hero::after { content: ""; position: absolute; inset: auto 0 0; height: 8rem; z-index: -1; background: linear-gradient(to bottom, transparent, var(--aven-base)); }
-.av-hero__inner { width: 100%; max-width: 64rem; margin: 0 auto; padding: 8rem 1rem 2.6rem; }
-.hero__title { margin: 0 0 .25em; max-width: 18ch; font-size: clamp(2.3rem, 6.5vw, 4.2rem); font-weight: 800; line-height: .96; letter-spacing: -.035em; text-wrap: balance; color: var(--aven-text); }
-.hero__sub { margin: 0 0 1.3rem; max-width: 34rem; color: rgb(243 241 247 / .85); font-size: .95rem; text-wrap: pretty; }
-.aven-search { display: flex; align-items: center; gap: .7rem; max-width: 34rem; padding: 0 .9rem; background: rgb(11 10 14 / .85); border: 1px solid var(--aven-line); border-radius: .4rem; backdrop-filter: blur(6px); }
+/* Zwevende menubalk */
+.av-nav-wrap { position: fixed; inset: 12px 0 auto; z-index: 6; display: flex; justify-content: center; padding: 0 12px; pointer-events: none; }
+.av-nav-col { width: 100%; max-width: 1024px; pointer-events: auto; }
+.av-nav { display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border: 1px solid rgb(42 39 53 / .8); border-radius: 999px; background: rgb(11 10 14 / .8); box-shadow: 0 10px 15px -3px rgb(7 6 11 / .6), 0 4px 6px -4px rgb(7 6 11 / .6); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+.av-brand { display: flex; align-items: center; gap: 10px; color: var(--av-ink); }
+.av-brand img { width: 32px; height: 32px; object-fit: contain; }
+.av-brand span { font-weight: 700; white-space: nowrap; }
+.av-links { display: none; align-items: center; gap: 4px; margin-left: auto; font-size: 14px; }
+.av-links a { padding: 6px 14px; border-radius: 999px; color: var(--av-muted); transition: color .15s; }
+.av-links a:hover { color: var(--av-ink); }
+.av-links a[aria-current="page"] { background: var(--av-surface-2); color: var(--av-ink); font-weight: 700; }
+.av-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 36px; padding: 0 20px; border: 1px solid var(--aven-violet); border-radius: 999px; background: var(--aven-violet); color: #fff; font: inherit; font-weight: 700; cursor: pointer; transition: background-color .15s, border-color .15s; }
+.av-btn:hover { background: var(--aven-violet-dark); border-color: var(--aven-violet-dark); color: #fff; }
+.av-btn--ghost { padding: 0 16px; border-color: var(--av-line); background: transparent; color: var(--av-ink); }
+.av-btn--ghost:hover { background: var(--av-surface-2); border-color: var(--av-line); color: var(--av-ink); }
+.av-login { display: none; }
+.av-cta { display: none; }
+.av-burger { display: grid; place-items: center; width: 36px; height: 36px; margin-left: auto; border-radius: 999px; color: var(--av-ink); cursor: pointer; }
+.av-drop { display: none; flex-direction: column; margin-top: 8px; padding: 8px; border: 1px solid var(--av-line); border-radius: 6px; background: var(--av-surface); }
+.av-menu-toggle:checked + .av-nav-col .av-drop { display: flex; }
+.av-drop > a { padding: 12px 16px; border-radius: 6px; color: var(--av-ink); }
+.av-drop > a:hover { background: var(--av-surface-2); }
+.av-drop > .av-btn { margin-top: 4px; min-height: 42px; padding: 0 18px; border-radius: 4px; color: #fff; }
+.av-drop > .av-cta { display: inline-flex; }
+.av-drop > .av-btn--ghost { color: var(--av-ink); }
+.av-btn--discord { border-color: #5865f2; background: #5865f2; }
+.av-btn--discord:hover { border-color: #4752c4; background: #4752c4; }
+.av-burger__close { display: none; }
+.av-menu-toggle:checked + .av-nav-col .av-burger__open { display: none; }
+.av-menu-toggle:checked + .av-nav-col .av-burger__close { display: block; }
+@media (min-width: 1280px) {
+  .av-links { display: flex; }
+  .av-login, .av-cta { display: inline-flex; }
+  .av-burger, .av-drop, .av-menu-toggle:checked + .av-nav-col .av-drop { display: none; }
+}
+
+/* Kop: gelijk aan de paginakop op avenrp.nl */
+.av-hero { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: 46svh; overflow: hidden; background: var(--av-void) url("../assets/scene-polder.webp") center / cover; }
+.av-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgb(7 6 11 / .9), rgb(7 6 11 / .55), rgb(7 6 11 / .1)); }
+.av-hero::after { content: ""; position: absolute; inset: auto 0 0; height: 128px; z-index: -1; background: linear-gradient(to bottom, transparent, var(--av-base)); }
+.av-hero__inner { width: 100%; max-width: 1024px; margin: 0 auto; padding: 128px 16px 48px; }
+.hero__title { margin: 0; max-width: 1024px; color: var(--av-ink); font-size: 60px; font-weight: 800; line-height: .95; letter-spacing: -.035em; text-wrap: balance; }
+.hero__sub { margin: 16px 0 0; max-width: 576px; color: rgb(244 242 248 / .85); font-size: 18px; text-wrap: pretty; }
+.aven-search { display: flex; align-items: center; gap: .7rem; max-width: 576px; margin-top: 28px; padding: 0 .9rem; background: rgb(11 10 14 / .85); border: 1px solid var(--av-line); border-radius: .4rem; backdrop-filter: blur(6px); }
 .aven-search:focus-within { border-color: var(--aven-violet); }
 .aven-search input { flex: 1; min-width: 0; padding: .75rem 0; background: transparent; border: 0; outline: 0; color: var(--aven-text); font: inherit; font-size: .85rem; }
 .aven-search input::placeholder { color: var(--aven-muted); opacity: .8; }
 .aven-search kbd { padding: 0 .4rem; border: 1px solid var(--aven-line); border-radius: .25rem; color: var(--aven-muted); font-size: .65rem; box-shadow: none; background: transparent; }
 .aven-search span { color: var(--aven-muted); font-size: .72rem; font-weight: 500; white-space: nowrap; }
+.av-chapters { display: inline-flex; align-items: center; min-height: 36px; margin-top: 14px; padding: 0 16px; border: 1px solid var(--av-line); border-radius: 999px; background: rgb(11 10 14 / .6); color: var(--av-ink); font-size: 15px; font-weight: 700; cursor: pointer; }
+.av-chapters:hover { background: var(--av-surface-2); }
+@media (min-width: 640px) { .hero__title { font-size: 72px; } }
+@media (min-width: 976px) { .av-chapters { display: none; } }
 .md-main__inner { margin-top: 1.5rem; }
 
 /* Zijbalk met hoofdstukken: alleen de lijst, zonder dubbele titels, zonder scrollbalk */
@@ -107,26 +137,22 @@ body { overflow-x: clip; }
 .empty { color: var(--aven-muted); text-align: center; padding: 2rem 0; }
 .regel[hidden], .hoofdstuk[hidden], .empty[hidden] { display: none !important; }
 
-/* Voet zoals op avenrp.nl */
-.av-footer { margin-top: 4rem; border-top: 1px solid var(--aven-line); background: var(--aven-void); color: var(--aven-text); }
-.av-footer__inner { display: grid; gap: 2.2rem; max-width: 70rem; margin: 0 auto; padding: 3.5rem 1rem 2.5rem; grid-template-columns: 1fr; }
-.av-footer a { text-decoration: none; }
-.av-footer__brand a { display: flex; align-items: center; gap: .75rem; color: var(--aven-text); font-size: 1rem; font-weight: 700; }
-.av-footer__brand img { height: 2.5rem; width: auto; }
-.av-footer__brand p { max-width: 18rem; margin: 1rem 0 0; color: var(--aven-muted); font-size: .8rem; }
-.av-footer h2 { margin: 0 0 .9rem; color: var(--aven-text); font-size: .75rem; font-weight: 700; letter-spacing: 0; text-transform: none; }
-.av-footer ul { margin: 0; padding: 0; list-style: none; }
-.av-footer li { margin: 0 0 .55rem; }
-.av-footer li a { color: var(--aven-muted); font-size: .8rem; }
-.av-footer li a:hover { color: var(--aven-text); }
-.av-footer__legal { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; max-width: 70rem; margin: 0 auto; padding: 1.4rem 1rem 2rem; border-top: 1px solid var(--aven-line); color: var(--aven-muted); font-size: .72rem; }
+/* Voet: gelijk aan avenrp.nl */
+.av-footer { margin-top: 64px; border-top: 1px solid var(--av-line); background: var(--av-void); }
+.av-footer__inner { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1152px; margin: 0 auto; padding: 64px 16px; }
+.av-footer__brand { display: flex; align-items: center; gap: 12px; color: var(--av-ink); font-size: 20px; font-weight: 700; }
+.av-footer__brand img { width: 40px; height: 40px; object-fit: contain; }
+.av-footer__blurb { max-width: 320px; margin: 16px 0 0; color: var(--av-muted); }
+.av-footer h2 { margin: 0; color: var(--av-ink); font-family: var(--aven-font); font-size: 14px; font-weight: 700; letter-spacing: 0; line-height: 1.55; text-transform: none; }
+.av-footer ul { margin: 16px 0 0; padding: 0; list-style: none; }
+.av-footer li { margin: 0 0 10px; }
+.av-footer li:last-child { margin-bottom: 0; }
+.av-footer li a { color: var(--av-muted); }
+.av-footer li a:hover { color: var(--av-ink); }
+.av-footer__legal { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin-top: 8px; padding-top: 24px; border-top: 1px solid var(--av-line); color: var(--av-muted); font-size: 14px; }
+@media (min-width: 768px) { .av-footer__inner { grid-template-columns: 1.5fr 1fr 1fr 1fr; } }
 
-@media (min-width: 48rem) { .av-footer__inner { grid-template-columns: 1.5fr 1fr 1fr 1fr; } }
 @media (min-width: 76.25em) {
-  .av-burger { display: none; }
-  .av-brand { margin-right: 0; }
-  .av-links { display: flex; margin-left: auto; }
-  .av-login { display: inline-flex; }
   /* Hoofdstukken als rustige zijbalk onder de menubalk, meebewegend bij scrollen */
   .md-sidebar--primary { top: 5.5rem; width: 15rem; height: calc(100vh - 6.5rem); padding: 0; }
   .md-sidebar--primary .md-sidebar__scrollwrap { margin: 0; padding: 0; }
@@ -137,7 +163,7 @@ body { overflow-x: clip; }
   .md-nav--secondary .md-nav__link { display: block; }
 }
 
-/* Tablet en mobiel: de hoofdstukken openen via de knop in de menubalk */
+/* Tablet en mobiel: de hoofdstukken openen via de knop in de kop */
 @media (max-width: 76.1875em) {
   .md-nav--primary > .md-nav__title { padding-top: 5rem; }
   .md-sidebar--primary { z-index: 7; }
@@ -147,9 +173,7 @@ body { overflow-x: clip; }
   .md-nav--secondary .md-nav__list { padding: .5rem .75rem 2rem; }
   .md-nav--secondary .md-nav__link { display: block; font-size: .9rem; padding: .6rem .7rem; }
 }
-@media (max-width: 30rem) { .av-brand span { display: none; } }
 @media (max-width: 40rem) {
-  .av-hero__inner { padding: 7rem 1rem 1.6rem; }
   .md-typeset .regel, .md-typeset .regel--begrip, .md-typeset .regel--sanctie { grid-template-columns: 1fr; gap: .15rem; padding: .7rem .9rem; }
   .md-typeset .regel h3 { white-space: normal; }
   .aven-search { flex-wrap: wrap; gap: 0 .6rem; padding: 0 .8rem; }
@@ -162,7 +186,7 @@ body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; } }
 @media print {
   body, .md-main { background: #fff; color: #000; }
-  .av-nav-wrap, .md-sidebar, .av-footer, .md-top, .aven-search { display: none; }
+  .av-nav-wrap, .md-sidebar, .av-footer, .md-top, .aven-search, .av-chapters { display: none; }
   .av-hero { min-height: 0; background: #fff; }
   .av-hero::before, .av-hero::after { display: none; }
   .av-hero__inner { padding: 0; }

@@ -16,27 +16,46 @@
   <meta name="twitter:description" content="{{ og_desc }}">
 {% endblock %}
 
+
 {% block header %}
   <header class="av-nav-wrap" data-md-component="header">
-    <div class="av-nav">
-      <label class="av-burger" for="__drawer" aria-label="Hoofdstukken">
-        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-      </label>
-      <a class="av-brand" href="https://avenrp.nl" aria-label="Aven Roleplay, naar de website">
-        <img src="{{ 'assets/arp-transparant.png' | url }}" alt="" width="32" height="32">
-        <span>Aven Roleplay</span>
-      </a>
-      <nav class="av-links" aria-label="Website">
+    <input type="checkbox" id="av-menu" class="av-menu-toggle" hidden>
+    <div class="av-nav-col">
+      <div class="av-nav">
+        <a class="av-brand" href="https://avenrp.nl">
+          <img src="{{ 'assets/arp-transparant.png' | url }}" alt="" width="32" height="32">
+          <span>Aven Roleplay</span>
+        </a>
+        <nav class="av-links" aria-label="Website">
+          <a href="https://avenrp.nl/starten">Starten</a>
+          <a href="{{ config.site_url }}" aria-current="page">Regels</a>
+          <a href="https://avenrp.nl/faq">FAQ</a>
+          <a href="https://avenrp.nl/vacatures">Vacatures</a>
+          <a href="https://avenrp.nl/team">Team</a>
+          <a href="https://avenrp.nl/store">Store</a>
+          <a href="https://avenrp.nl/changelog">Nieuws</a>
+        </nav>
+        <a class="av-btn av-btn--ghost av-login" href="https://portaal.avenrp.nl/login">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/></svg>Inloggen
+        </a>
+        <a class="av-btn av-cta" href="https://avenrp.nl/starten">Aanmelden</a>
+        <label class="av-burger" for="av-menu" aria-label="Menu openen">
+          <svg class="av-burger__open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="av-burger__close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </label>
+      </div>
+      <nav class="av-drop" aria-label="Menu">
         <a href="https://avenrp.nl/starten">Starten</a>
-        <a href="{{ config.site_url }}" aria-current="page">Regels</a>
+        <a href="{{ config.site_url }}">Regels</a>
         <a href="https://avenrp.nl/faq">FAQ</a>
         <a href="https://avenrp.nl/vacatures">Vacatures</a>
         <a href="https://avenrp.nl/team">Team</a>
         <a href="https://avenrp.nl/store">Store</a>
         <a href="https://avenrp.nl/changelog">Nieuws</a>
+        <a class="av-btn av-cta" href="https://avenrp.nl/starten">Aanmelden voor de test</a>
+        <a class="av-btn av-btn--ghost" href="https://portaal.avenrp.nl/login"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/></svg>Inloggen op het portaal</a>
+        <a class="av-btn av-btn--discord" href="https://discord.gg/avenrp"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .079.009c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>Discord</a>
       </nav>
-      <a class="av-login" href="https://portaal.avenrp.nl/login">Inloggen</a>
-      <a class="av-cta" href="https://avenrp.nl/starten">Aanmelden</a>
     </div>
   </header>
 {% endblock %}
@@ -51,6 +70,7 @@
         <kbd>/</kbd>
         <span id="aven-count">122 regels</span>
       </div>
+      <label class="av-chapters" for="__drawer">Hoofdstukken</label>
     </div>
   </section>
 {% endblock %}
@@ -58,9 +78,9 @@
 {% block footer %}
   <footer class="av-footer">
     <div class="av-footer__inner">
-      <div class="av-footer__brand">
-        <a href="https://avenrp.nl"><img src="{{ 'assets/arp-transparant.png' | url }}" alt="" width="40" height="40"><span>Aven Roleplay</span></a>
-        <p>Als de avond valt, begint je verhaal. Een Nederlandse FiveM-roleplaystad.</p>
+      <div>
+        <a class="av-footer__brand" href="https://avenrp.nl"><img src="{{ 'assets/arp-transparant.png' | url }}" alt="" width="40" height="40"><span>Aven Roleplay</span></a>
+        <p class="av-footer__blurb">Als de avond valt, begint je verhaal. Een Nederlandse FiveM-roleplaystad.</p>
       </div>
       <nav aria-label="Speel mee">
         <h2>Speel mee</h2>
@@ -88,10 +108,10 @@
           <li><a href="https://avenrp.nl/refund">Refund</a></li>
         </ul>
       </nav>
-    </div>
-    <div class="av-footer__legal">
-      <span>© {{ config.copyright }}</span>
-      <span>Niet gelieerd aan Rockstar Games of Take-Two Interactive.</span>
+      <div class="av-footer__legal">
+          <span>© {{ config.copyright }}</span>
+          <span>Niet gelieerd aan Rockstar Games of Take-Two Interactive.</span>
+        </div>
     </div>
   </footer>
 {% endblock %}
